@@ -1,0 +1,39 @@
+{
+  "name": "grunt-envify",
+  "description": "Grunt plugin for envify without browserify.",
+  "version": "0.0.1",
+  "license": "MIT",
+  "author": "Andrew Couch <grunt-envify@andrewcou.ch>",
+  "homepage": "https://github.com/couchand/grunt-envify",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/couchand/grunt-envify.git"
+  },
+  "bugs": {
+    "url": "https://github.com/couchand/grunt-envify/issues"
+  },
+  "keywords": [
+    "gruntplugin",
+    "grunt",
+    "envify"
+  ],
+  "scripts": {
+    "test": "grunt test"
+  },
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "dependencies": {
+    "envify": "~2.0.1"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-contrib-clean": "^0.5.0",
+    "grunt-contrib-coffee": "~0.10.1",
+    "grunt-env": "~0.4.1"
+  },
+  "peerDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-env": "~0.4.1"
+  }
+}
