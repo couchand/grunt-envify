@@ -2,6 +2,16 @@
 
 > Grunt plugin for envify without browserify.
 
+This might not be what you're looking for.  If you want to set the
+variables in process.env, you're looking for [grunt-env][0].  If you
+want to use envify as part of browserify, you want [grunt-browserify][1].
+This module is only useful if you'd like [envify][2] but without the
+browserify.
+
+[0]: https://github.com/jsoverson/grunt-env
+[1]: https://github.com/jmreidy/grunt-browserify
+[2]: https://github.com/hughsk/envify
+
 ## Getting Started
 This plugin requires Grunt `~0.4.5`
 
@@ -26,59 +36,55 @@ In your project's Gruntfile, add a section named `envify` to the data object pas
 grunt.initConfig({
   envify: {
     options: {
-      // Task-specific options go here.
+      env: {
+        // Pass custom env to use instead of process.env.
+      }
     },
     your_target: {
-      // Target-specific file lists and/or options go here.
-    },
-  },
+      // Target-specific file lists and/or env sandbox go here.
+    }
+  }
 });
 ```
 
 ### Options
 
-#### options.separator
-Type: `String`
-Default value: `',  '`
+#### options.env
+Type: `Object`
+Default value: `process.env`
 
-A string value that is used to do something with whatever.
-
-#### options.punctuation
-Type: `String`
-Default value: `'.'`
-
-A string value that is used to do something else with whatever else.
+An object of env variables to use instead of process.env.
 
 ### Usage Examples
 
-#### Default Options
-In this example, the default options are used to do something with whatever. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result would be `Testing, 1 2 3.`
+#### Default
+In this example, process.env is used.
 
 ```js
 grunt.initConfig({
   envify: {
-    options: {},
     files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
-  },
+      'dest/index.js': ['src/index.js']
+    }
+  }
 });
 ```
 
-#### Custom Options
-In this example, custom options are used to do something else with whatever else. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result in this case would be `Testing: 1 2 3 !!!`
+#### Custom Env
+Override process.env with custom variables.
 
 ```js
 grunt.initConfig({
   envify: {
     options: {
-      separator: ': ',
-      punctuation: ' !!!',
+      env: {
+        NODE_ENV: 'production'
+      }
     },
     files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
-  },
+      'dest/index.js': ['src/index.js']
+    }
+  }
 });
 ```
 
