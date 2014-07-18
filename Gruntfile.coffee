@@ -27,6 +27,12 @@ module.exports = (grunt) ->
         src: ['**/*.js']
         dest: 'tmp'
         ext: '.js'
+      custom:
+        options:
+          env:
+            NODE_ENV: 'foobar'
+        files:
+            'tmp/custom.js': ['test/fixture/sample.js']
 
   grunt.loadTasks 'tasks'
 

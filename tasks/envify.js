@@ -40,7 +40,7 @@ module.exports = function(grunt) {
 
     // Iterate over all specified file groups.
     this.files.forEach(function(f) {
-      // Concat specified files.
+
       var src = f.src.filter(function(filepath) {
         // Warn on and remove invalid source files (if nonull was set).
         if (!grunt.file.exists(filepath)) {
@@ -63,7 +63,8 @@ module.exports = function(grunt) {
       };
 
       createDestDir(f.dest);
-      envify(src[0], f.dest).on('finish', check(f.dest));
+      envify(src[0], f.dest, options.env ? options.env : void 0)
+        .on('finish', check(f.dest));
     });
   });
 
