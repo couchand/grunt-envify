@@ -28,13 +28,10 @@ module.exports = function(grunt) {
     var done = this.async();
     var count = this.files.length;
 
-    function check(name) {
-      return function doCheck() {
-        count -= 1;
-        if (count === 0) {
-          grunt.log.writeln('File "' + name + '" created.');
-          done();
-        }
+    function check() {
+      count -= 1;
+      if (count === 0) {
+        done();
       }
     }
 
@@ -64,7 +61,7 @@ module.exports = function(grunt) {
 
       createDestDir(f.dest);
       envify(src[0], f.dest, options.env ? options.env : void 0)
-        .on('finish', check(f.dest));
+        .on('finish', check);
     });
   });
 
