@@ -63,8 +63,10 @@ In this example, process.env is used.
 ```js
 grunt.initConfig({
   envify: {
-    files: {
-      'dest/index.js': ['src/index.js']
+    your_target: {
+      files: {
+        'dest/index.js': ['src/index.js']
+      }
     }
   }
 });
@@ -76,13 +78,15 @@ Override process.env with custom variables.
 ```js
 grunt.initConfig({
   envify: {
-    options: {
-      env: {
-        NODE_ENV: 'production'
+    your_target: {
+      options: {
+        env: {
+          NODE_ENV: 'production'
+        }
+      },
+      files: {
+        'dest/index.js': ['src/index.js']
       }
-    },
-    files: {
-      'dest/index.js': ['src/index.js']
     }
   }
 });
