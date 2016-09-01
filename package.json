@@ -1,7 +1,7 @@
 {
   "name": "grunt-envify",
   "description": "Grunt plugin for envify without browserify.",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "license": "MIT",
   "author": "Andrew Couch <grunt-envify@andrewcou.ch>",
   "homepage": "https://github.com/couchand/grunt-envify",
