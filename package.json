@@ -18,6 +18,7 @@
     "envify"
   ],
   "scripts": {
+    "release": "mkdir dist && cp -r lib/ dist/lib && cp -r tasks/ dist/tasks/ && cp package.json dist && cp LICENSE-MIT dist && cp README.md dist",
     "test": "grunt build && grunt test && grunt cleanup"
   },
   "engines": {
